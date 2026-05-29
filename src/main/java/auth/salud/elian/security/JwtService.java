@@ -3,6 +3,7 @@ package auth.salud.elian.security;
 import java.nio.charset.StandardCharsets;
 import java.time.Instant;
 import java.util.Date;
+import java.util.List;
 
 import javax.crypto.SecretKey;
 
@@ -29,7 +30,7 @@ public class JwtService {
 
         return Jwts.builder()
                 .subject(usuario.getEmail())
-                .claim("rol", usuario.getRol())
+                .claim("roles", List.of(usuario.getRol()))
                 .claim("idUsuario", usuario.getIdUsuario())
                 .issuedAt(Date.from(now))
                 .expiration(Date.from(now.plusMillis(expirationMs)))
