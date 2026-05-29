@@ -17,4 +17,5 @@ public class AuthResponse {
     private String apellido;
     private String email;
     private String rol;
+    private String token;
 }
